@@ -1,0 +1,123 @@
+
+/* Variables */
+
+:root {
+
+    /* Radius Variables */
+    --wdtRadius_Zero: 0;
+    --wdtRadius_Part: 2.5em;
+    --wdtRadius_Full: 50%;
+
+    --wdtRadius_1X: 3px;
+    --wdtRadius_2X: 5px;
+    --wdtRadius_3X: 10px;
+    --wdtRadius_4X: 20px;
+
+    /* Padding Variables */
+    --wdtInputPadding: 10px 20px;
+    --wdtInputBgColor: rgba(0,0,0,0);
+
+    --wdtPadding_Btn: clamp(0.625rem, 0.5673rem + 0.2564vw, 0.875rem) clamp(1.25rem, 0.9904rem + 1.1538vw, 2.375rem);
+    --wdtPadding_MiniBtn: 12px 20px;
+    --wdtPadding_MaxiBtn: 18px 40px;
+
+
+    --wdtBaseTransition: all 0.3s linear 0s;
+    --wdtAltTransition: all 0.35s ease-in-out 0s;
+
+    --wdtAdLetterSpaceing: clamp(0.0625rem, 0.0337rem + 0.1282vw, 0.1875rem);
+    --wdtAltLetterSpacing: 1px;
+    --wdtAltLetterSpacing_2X: 1.5px;
+
+}
+
+/* Fonts Initial */
+
+@font-face {
+    font-family: "DM Sans";
+    font-optical-sizing: auto;
+    font-style: normal;
+    src: url(../fonts/DM_sans/DMSans-Medium.ttf);
+}
+
+/* Font Family Variables */
+
+:root {
+    --Base-font-family: "DM Sans";
+    --Base-font-weight: 500;
+}
+
+
+/*--------------------------------------------------------------
+    Document & Body Styles
+--------------------------------------------------------------*/
+
+    /* #region - Document & Body Styles */
+
+    html { width: 100%;
+        cursor: default;
+        height:100%;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        -webkit-tap-highlight-color: transparent;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body { overflow-x: hidden; width: 100%; font-family: var(--Base-font-family); font-weight: var(--Base-font-weight); }
+
+    body, button, input, textarea, select, optgroup { margin: 0; }
+
+    *, *:before, *:after { -webkit-box-sizing: inherit; box-sizing: inherit; }
+    :before, :after { text-decoration: inherit; vertical-align: inherit; }
+
+    /* #endregion */
+
+
+/*--------------------------------------------------------------
+    Transitions
+--------------------------------------------------------------*/
+
+    /* #region - Transitions */
+
+    a, input[type="submit"], input[type="reset"], input[type="button"], button[type="button"], *[role="button"], button, .button, a.button, 
+    .radio-label input[type="radio"] + span:before, .select2-results__option { 
+        -webkit-transition: var(--wdtBaseTransition); transition: var(--wdtBaseTransition); }
+
+    /* #endregion */
+
+
+/*--------------------------------------------------------------
+    Grid Container & Main Content Layouts
+--------------------------------------------------------------*/
+
+/* Links */
+a { background-color: transparent; text-decoration: none; }
+a:hover, a:active { outline: 0; }
+
+/* Theme Style */
+
+.wrapper { clear: both; float: left; margin: 0; padding: 0; width: 100%; }
+.inner-wrapper { float: left; margin: 0; padding: 0; overflow: hidden; width: 100%; }
+
+.container { clear: both; margin: 0 auto; position: relative; width: 100%; max-width: 1640px; }
+
+img { display: block; max-width: 100%; }
+
+.d-none { display: none !important; }
+
+/* gutter sPacing */
+
+.gutter { padding: 0px 30px !important; }
+.gutter-left { padding-left: 30px !important; }
+.gutter-right { padding-right: 30px !important; }
+
+
+/* Top and Bottom Padding - value ( 45 - 90 )*/
+
+.padding-x { padding: 0 clamp(2.8125rem, 2.1635rem + 2.8846vw, 5.625rem) !important; }
+.padding-y { padding: clamp(2.8125rem, 2.1635rem + 2.8846vw, 5.625rem) 0 !important; }
