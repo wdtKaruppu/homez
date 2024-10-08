@@ -56,18 +56,46 @@ customElements.define('wdt-hotspot', WDT_Hotspot);
 
 // 2. Interactive Link Showcase
 
-
 class WDT_link_showcase extends HTMLElement {
-
   constructor() {
     super();
+    this.wdtMainItems = this.querySelectorAll('.wdt-link-showcase-content-items');
     this.init();
   }
 
   init() {
-    console.log(this);
-  }
+    this.wdtMainItems.forEach(mainItem => {
 
+      let mainItem_items = mainItem.querySelectorAll('.wdt-link-showcase-item');
+      let wdtImageItems = mainItem.querySelectorAll('.wdt-link-follow-content');
+
+      mainItem_items.forEach(imageItems => {
+
+        imageItems.addEventListener('mousemove', (event) => {
+
+          let x = event.offsetX;
+          let y = event.offsetY;
+
+          wdtImageItems.forEach(imageItems => {
+            imageItems.style.left = `${x}px`;
+            imageItems.style.top = `${y}px`;
+          });
+  
+        });
+
+        imageItems.addEventListener('mouseenter', (event) => {
+          imageItems.classList.add('wdt-active');
+        });
+
+        imageItems.addEventListener('mouseleave', (event) => {
+          imageItems.classList.remove('wdt-active');
+        });
+
+      });
+
+    });
+  }
 }
+
 
 customElements.define('wdt-link-interactive', WDT_link_showcase);

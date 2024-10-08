@@ -121,3 +121,8 @@ img { display: block; max-width: 100%; }
 
 .padding-x { padding: 0 clamp(2.8125rem, 2.1635rem + 2.8846vw, 5.625rem) !important; }
 .padding-y { padding: clamp(2.8125rem, 2.1635rem + 2.8846vw, 5.625rem) 0 !important; }
+
+
+@media screen and (min-width: 1920px) {
+    body { max-width: 1920px; margin: 0 auto; }
+}
