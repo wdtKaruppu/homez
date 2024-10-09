@@ -24,6 +24,7 @@
 
     --wdtBaseTransition: all 0.3s linear 0s;
     --wdtAltTransition: all 0.35s ease-in-out 0s;
+    --wdt-Ad-Transition: 375ms cubic-bezier(0.7, 0, 0.3, 1);
 
     --wdtAdLetterSpaceing: clamp(0.0625rem, 0.0337rem + 0.1282vw, 0.1875rem);
     --wdtAltLetterSpacing: 1px;
@@ -46,6 +47,10 @@
     --Base-font-family: "DM Sans";
     --Base-font-weight: 500;
 }
+
+h1, h2, h3, h4, h5, h6 { font-weight: var(--Base-font-weight); line-height: 1.1em; letter-spacing: -0.05em; }
+
+h2 { font-size: clamp(1.875rem, 1.7308rem + 0.641vw, 2.5rem); }
 
 
 /*--------------------------------------------------------------
@@ -102,7 +107,7 @@ a:hover, a:active { outline: 0; }
 /* Theme Style */
 
 .wrapper { clear: both; float: left; margin: 0; padding: 0; width: 100%; }
-.inner-wrapper { float: left; margin: 0; padding: 0; overflow: hidden; width: 100%; }
+.inner-wrapper { float: left; margin: 0; padding: 0; overflow-x: clip; overflow-y: visible; width: 100%; }
 
 .container { clear: both; margin: 0 auto; position: relative; width: 100%; max-width: 1640px; }
 

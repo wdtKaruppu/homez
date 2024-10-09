@@ -73,6 +73,8 @@ class WDT_link_showcase extends HTMLElement {
 
         imageItems.addEventListener('mousemove', (event) => {
 
+          let target = event.target;
+
           let x = event.offsetX;
           let y = event.offsetY;
 
@@ -80,7 +82,7 @@ class WDT_link_showcase extends HTMLElement {
             imageItems.style.left = `${x}px`;
             imageItems.style.top = `${y}px`;
           });
-  
+
         });
 
         imageItems.addEventListener('mouseenter', (event) => {
