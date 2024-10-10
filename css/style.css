@@ -178,6 +178,14 @@
 .wdt-template-showcase-items .wdt-template-showcase-content-items { display: flex; flex-direction: column; }
 .wdt-template-showcase-items .wdt-template-showcase-content-items .wdt-template-main-action { margin: auto 0 40px; }
 
+.wdt-template-showcase-items .wdt-template-main-action .wdt-temp-showcase-item .wdt-template-showcase--title { 
+    font-size: clamp(1.25rem, 1.1346rem + 0.5128vw, 1.75rem) /*20 - 28*/; margin: 0; }
+.wdt-template-showcase-items .wdt-template-main-action > .wdt-temp-showcase-item:not(:last-child) { 
+    margin-bottom:  clamp(0.625rem, 0.4231rem + 0.8974vw, 1.5rem) /*10 - 24*/; }
+
+.wdt-template-showcase-items .wdt-template-main-action > .wdt-temp-showcase-item .wdt-icon-wrapper { 
+    font-size: 1rem; padding: 4px 16px; border: 2px solid; border-radius: 20px; position: relative; display: inline-flex; margin-left: 6px; }
+
 
 /* Common Heading Style */
 

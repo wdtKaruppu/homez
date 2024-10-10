@@ -111,7 +111,8 @@ a:hover, a:active { outline: 0; }
 
 .container { clear: both; margin: 0 auto; position: relative; width: 100%; max-width: 1640px; }
 
-img { display: block; max-width: 100%; }
+img, video, svg { display: block; max-width: 100%; }
+svg { width: 1em; height: 1em; color: currentColor; }
 
 .d-none { display: none !important; }
 
