@@ -1,6 +1,7 @@
 
 // 1. Hotspot 
 // 2. Interactive Link Showcase
+// 3. Interactive Template Showcase
 
 
 ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -101,3 +102,70 @@ class WDT_link_showcase extends HTMLElement {
 
 
 customElements.define('wdt-link-interactive', WDT_link_showcase);
+
+
+// 3. Interactive Template Showcase
+
+class WDT_Template_showcase extends HTMLElement {
+  constructor() {
+    super();
+    this.showcaseItem = this.querySelector('.wdt-template-showcase-items');
+    this.hoverAndClick = JSON.parse(this.dataset.settings).click;
+    this.init_interactive();
+  }
+
+  init_interactive() {
+
+    console.log(this.hoverAndClick);
+    
+
+    const hoverContentSection = Array.from(this.showcaseItem.querySelectorAll('.wdt-temp-showcase-item'));
+    const imageContentSection = Array.from(this.showcaseItem.querySelectorAll('.wdt-template-content-item'));
+
+    hoverContentSection[0].classList.add('wdt-active');
+    imageContentSection[0].classList.add('wdt-active');
+
+    const activateContent = (element) => {
+        const contentIdName = element.id;
+
+        if (!element.classList.contains('wdt-active')) {
+            hoverContentSection.forEach(item => item.classList.remove('wdt-active'));
+            imageContentSection.forEach(img => img.classList.remove('wdt-active'));
+
+            hoverContentSection.forEach(thisContent => {
+              const imageIdName = thisContent.id;                
+              if (imageIdName === contentIdName) {
+                  thisContent.classList.add('wdt-active');
+              } else {
+                  thisContent.classList.remove('wdt-active');
+              }
+            });
+
+            imageContentSection.forEach(thisImage => {
+                const imageIdName = thisImage.id;                
+                if (imageIdName === contentIdName) {
+                    thisImage.classList.add('wdt-active');
+                } else {
+                    thisImage.classList.remove('wdt-active');
+                }
+            });
+        }
+    };
+
+    if (this.hoverAndClick === true) {
+        hoverContentSection.forEach(item => {
+            item.addEventListener('click', function() {
+              activateContent(this);
+            });
+        });
+    } else {
+        hoverContentSection.forEach(item => {
+            item.addEventListener('mouseover', function() {
+              activateContent(this);
+            });
+        });
+    }
+  }
+};
+
+customElements.define('wdt-interactive-template', WDT_Template_showcase);
