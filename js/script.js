@@ -61,45 +61,32 @@ class WDT_link_showcase extends HTMLElement {
   constructor() {
     super();
     this.wdtMainItems = this.querySelectorAll('.wdt-link-showcase-content-items');
+    this.wdtMainitem = Array.from(this.querySelectorAll('.wdt-link-showcase-item'));
     this.init();
   }
 
   init() {
-    this.wdtMainItems.forEach(mainItem => {
 
-      let mainItem_items = mainItem.querySelectorAll('.wdt-link-showcase-item');
-      let wdtImageItems = mainItem.querySelectorAll('.wdt-link-follow-content');
+    this.wdtMainitem.forEach(wdtItem => {
 
-      mainItem_items.forEach(imageItems => {
+      let wdtImageItems = wdtItem.querySelectorAll('.wdt-link-follow-content');
+      
+      wdtItem.addEventListener('mousemove', (e) => {
 
-        imageItems.addEventListener('mousemove', (event) => {
+        let x = e.offsetX;
+        let y = e.offsetY;
 
-          let target = event.target;
-
-          let x = event.offsetX;
-          let y = event.offsetY;
-
-          wdtImageItems.forEach(imageItems => {
-            imageItems.style.left = `${x}px`;
-            imageItems.style.top = `${y}px`;
-          });
-
-        });
-
-        imageItems.addEventListener('mouseenter', (event) => {
-          imageItems.classList.add('wdt-active');
-        });
-
-        imageItems.addEventListener('mouseleave', (event) => {
-          imageItems.classList.remove('wdt-active');
+        wdtImageItems.forEach(imageItems => {
+          imageItems.style.left = `${x}px`;
+          imageItems.style.top = `${y}px`;
         });
 
       });
-
+      
     });
+
   }
 }
-
 
 customElements.define('wdt-link-interactive', WDT_link_showcase);
 
@@ -115,9 +102,6 @@ class WDT_Template_showcase extends HTMLElement {
   }
 
   init_interactive() {
-
-    console.log(this.hoverAndClick);
-    
 
     const hoverContentSection = Array.from(this.showcaseItem.querySelectorAll('.wdt-temp-showcase-item'));
     const imageContentSection = Array.from(this.showcaseItem.querySelectorAll('.wdt-template-content-item'));
